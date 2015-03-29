@@ -2,12 +2,19 @@
 
 <html>
     <head>
-        <title>{%block title %} Project Sports {% endblock %}</title>
-    </head>
+    <style>
+ul#menu li {
+    display:inline;
+}
+</style>
+        <title>{%block title %} College Swim {% endblock %}</title>
 
+    </head>
     <body>
-        <div class='container'>
-            {% block content %}{% endblock %}
+        <div class="container">
+            <h2><a href="{% url "swimming_home" %}"> Triangle College Swim </a></h2>
+            {% block content %}
+            {% endblock %}
         </div>
     </body>
 </html>

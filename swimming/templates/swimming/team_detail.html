@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> {{Team.name}}</h2>
+<ul id="menu">
+    <li>{{ team.name}}</li>
+    <li>{{team.school}}</li>
+    <li>{{team.head_coach}}
+    <li>{{team.gender}}</li>
+    {% for athlete in teams.athletes.all %}
+    {{ athlete }}
+    {% endfor %}
+</ul>
+{% endblock content %}
