@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
 
 {% block content %}
-<h2> {{Team.name}}</h2>
+<h2> {{team.name}}</h2>
 <ul id="menu">
-    <li>{{ team.name}}</li>
     <li>{{team.school}}</li>
-    <li>{{team.head_coach}}
-    <li>{{team.gender}}</li>
-    {% for athlete in teams.athletes.all %}
-    {{ athlete }}
-    {% endfor %}
+    <li>Head Coach {{team.head_coach}}
 </ul>
+<table>
+    {% for athlete in team.athletes.all %}
+    <tr><td>{{ athlete.name }}</td>
+            <td>{{ athlete.position }}</td>
+            <td>{{ athlete.height }}</td>
+            <td>{{ athlete.year}}</td>
+            <td>{{athlete.hometown}}</td>
+            <td><img src="{{athlete.photo.url}}"/></td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock content %}
+# ToDO make athletes in a table

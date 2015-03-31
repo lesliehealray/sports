@@ -3,9 +3,8 @@ from django.db import models
 
 class Team(models.Model):
     name = models.CharField(unique=True, max_length=50)
-    head_coach = models. CharField(max_length=50)
+    head_coach = models. CharField(max_length=50, null=True, blank=True)
     school = models.CharField(max_length=50)
-    gender = models.CharField(unique=False, max_length=20)
     athletes = models.ManyToManyField('Athlete', null=True, blank=True)
 
     class Meta(object):
@@ -22,10 +21,11 @@ class Team(models.Model):
 class Athlete(models.Model):
     name = models.CharField(max_length=50)
     position = models.CharField(max_length=20)
-    height = models.CharField(max_length=20)
+    height = models.CharField(null=True, blank=True, max_length=20)
     year = models.CharField(max_length=20)
     hometown = models.CharField(max_length=100)
     photo = models.ImageField()
+    gender = models.CharField(null=False, blank=False, max_length=50)
 
     def __unicode__(self):
         return u'%s' % (self.name)
