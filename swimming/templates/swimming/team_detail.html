@@ -19,7 +19,7 @@
     </thead>
     {% for athlete in team.athletes.all %}
     <tr>
-            <td><button type="button" class="btn btn-info" data-toggle="popover" data-trigger="focus" title="Popover title" data-content="<img src='{{ athlete.photo.url }}' />">{{ athlete.name }}</button></td>
+            <td><button type="button" class="btn btn-info" data-toggle="popover" data-trigger="focus" title="{{ athlete.name }}" data-content="<img src='{{ athlete.photo.url }}' />">{{ athlete.name }}</button></td>
             <td>{{ athlete.position }}</td>
             <td>{{ athlete.height }}</td>
             <td>{{ athlete.year}}</td>
