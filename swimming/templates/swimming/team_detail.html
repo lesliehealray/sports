@@ -5,25 +5,36 @@
 {% block content %}
 
 <h2> {{team.name}}</h2>
-<ul id="menu">
-    <li>{{team.school}}</li>
-    <li>Head Coach {{team.head_coach}}</li>
-</ul>
-<table>
+<h2>{{team.school}}</h2>
+<h3>Head Coach {{team.head_coach}}</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Height</th>
+            <th>Year</th>
+            <th>Hometown </th>
+        </tr>
+    </thead>
     {% for athlete in team.athletes.all %}
-    <tr><td>{{ athlete.name }}</td>
+    <tr>
+            <td><button type="button" class="btn btn-info" data-toggle="popover" data-trigger="focus" title="Popover title" data-content="<img src='{{ athlete.photo.url }}' />">{{ athlete.name }}</button></td>
             <td>{{ athlete.position }}</td>
             <td>{{ athlete.height }}</td>
             <td>{{ athlete.year}}</td>
             <td>{{athlete.hometown}}</td>
     </tr>
-    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-    <img src="{{athlete.photo.url}}"/>
-    </button>
     {% endfor %}
 </table>
 {% endblock content %}
 {% block extra-js %}
-
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover({
+        placement : 'right',
+        html: true
+    });
+});
+</script>
 {% endblock %}
-
