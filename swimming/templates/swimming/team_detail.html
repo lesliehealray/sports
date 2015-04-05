@@ -3,10 +3,11 @@
 
 
 {% block content %}
+
 <h2> {{team.name}}</h2>
 <ul id="menu">
     <li>{{team.school}}</li>
-    <li>Head Coach {{team.head_coach}}
+    <li>Head Coach {{team.head_coach}}</li>
 </ul>
 <table>
     {% for athlete in team.athletes.all %}
@@ -15,9 +16,14 @@
             <td>{{ athlete.height }}</td>
             <td>{{ athlete.year}}</td>
             <td>{{athlete.hometown}}</td>
-            <td><img src="{{athlete.photo.url}}"/></td>
     </tr>
+    <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+    <img src="{{athlete.photo.url}}"/>
+    </button>
     {% endfor %}
 </table>
 {% endblock content %}
-# ToDO make athletes in a table
+{% block extra-js %}
+
+{% endblock %}
+
