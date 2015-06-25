@@ -18,7 +18,7 @@ PROJECT_DIR = os.path.join(BASE_DIR, 'sports')
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '4!z@+zns*n1iwx1(_(sb*kgy-mr5y&(5cfa01rwer#amxcxc%x'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
